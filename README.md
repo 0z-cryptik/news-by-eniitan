@@ -1,7 +1,5 @@
 # News By Eniitan
 
-https://res.cloudinary.com/dhchswu0k/image/upload/v1694921923/Screenshot_83_nvi505.png
-
 The News Web App is a user-friendly web application that allows users to enjoy news summaries from around the world across various categories in their feed, users can get a general grasp of happenings around the world without having to read much, and should they come across an headline that interests them, they can click on the headline to read the full article. This application also provides a seamless experience with both Dark Mode and Light Mode functionalities, allowing users to customize their experience. Additionally, the web app remembers the user's preferred mode, ensuring that their chosen theme is applied every time they return to the site.
 
 ## Features
@@ -18,7 +16,7 @@ The News Web App is a user-friendly web application that allows users to enjoy n
 
 To use the News Web App, follow these steps:
 
-1. **Access the Website:** Visit the website at [https://www.news-by-eniitan.vercel.app]).
+1. **Access the Website:** Visit the website at [(https://news-by-eniitan.vercel.app/)].
 
 2. **Read full articles** Scroll through the news summaries in your feed. Click on a headline to read the full article.
 
