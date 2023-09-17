@@ -24,4 +24,4 @@ To use the News Web App, follow these steps:
 
 4. **Navigate to Categories:** If you are using a phone or tablet, access different news categories by clicking the menu icon in the top-right corner of the screen.
 
-Happy reading! 📰🌐
+Happy scrolling! 📰🌐
