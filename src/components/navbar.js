@@ -75,11 +75,8 @@ const NavBar = () => {
  
     </div>
 
-    
-
-     
       <div style={{transform: `${viewMenu ? 'translate3d(40vw, 0, 0)' : 'translate3d(100vw, 0, 0)'}`, zIndex: '30', transition: 'transform .3s linear'}} className={`${dark ? `fixed flex flex-col w-[60%] md:hidden h-[100vh] bg-black text-white text-xl pb-6` : `fixed w-[60%] bg-white flex flex-col h-[100vh] md:hidden text-black text-xl pb-6`}`}>
-         <button onClick={() => setViewMenu(false)} className="block pl-1">
+         <button onClick={() => setViewMenu(false)} className="block pl-1 w-fit">
             <MdCancelPresentation size={'2rem'} />
          </button>
 
@@ -129,7 +126,7 @@ const NavBar = () => {
         </div>
 
         <div style={{transform: `${viewMenu ? 'translate3d(60vw, 0, 0)' : 'translate3d(100vw, 0, 0)'}`, zIndex: '30', transition: 'transform .3s linear'}} className={`${dark ? `fixed md:flex flex-col w-[40%] hidden h-[100vh] bg-black text-white text-xl pb-6` : `fixed bg-white md:flex flex-col w-[40%] h-[100vh] hidden text-black text-xl pb-6`}`}>
-            <button onClick={() => setViewMenu(false)} className="block pl-1">
+            <button onClick={() => setViewMenu(false)} className="block w-fit pl-1">
                <MdCancelPresentation size={'2rem'} />
             </button>
 
