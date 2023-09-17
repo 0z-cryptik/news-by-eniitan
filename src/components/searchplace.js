@@ -5,7 +5,7 @@ import { timeFunc } from "./timeStuff";
 import BarLoader from "./barLoader";
 import { useList } from "./myHooks";
 import { key } from "./key";
-import { Oval } from "react-loader-spinner";
+import { Bars, Oval } from "react-loader-spinner";
 
 export const SearchComp = () => {
    const { dark, setActiveCategory } = useList()
@@ -66,7 +66,12 @@ export const SearchComp = () => {
       setActiveCategory('search')
    }, [])
 
-   if (loading) return <BarLoader />
+   if (loading) return <div className={`${dark ? 'bg-black pt-[4rem] h-screen' : "pt-[4rem] h-screen   overflow-hidden"}`}>
+      <Search onSubmit={onSearchSubmit} val={searchTerm} onChange={onSearchchange} />
+      <div className='h-[75vh] flex items-center'>
+         <Bars wrapperClass='mx-auto' color='blue' />
+      </div>
+   </div>
 
    if (!conSearchList.length) return <div className={`${dark ? 'bg-black pt-[4rem] h-screen overflow-hidden' : "pt-[4rem] h-screen overflow-hidden"}`}>
       <Search onSubmit={onSearchSubmit} val={searchTerm} onChange={onSearchchange} />
