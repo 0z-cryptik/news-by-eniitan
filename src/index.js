@@ -19,5 +19,3 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 module.hot && module.hot.accept();
-
-//cd C:\Users\ENITAN\Desktop\react3\react-tailwind

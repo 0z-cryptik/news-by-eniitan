@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Search } from "./search";
 import axios from "axios";
 import { timeFunc } from "./timeStuff";
-import BarLoader from "./barLoader";
 import { useList } from "./myHooks";
 import { key } from "./key";
 import { Bars, Oval } from "react-loader-spinner";

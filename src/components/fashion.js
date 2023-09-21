@@ -6,7 +6,7 @@ import { useList } from "./myHooks";
 import { key } from "./key";
 import { EmptyListPage } from "./errorpage";
 
-export const Fashion = ({onClickMe = f => f}) => {
+export const Fashion = () => {
    const { dark, setActiveCategory } = useList()
    const [list, setList] = useState([])
    const [error, setError] = useState(null)
