@@ -1,12 +1,13 @@
 import '../App.css'
 import { useList } from "./myHooks"
 import { MdCancelPresentation } from "react-icons/md"
-import { FaSearch, FaShoppingBag, FaBasketballBall, FaLaptop, FaIcons, FaVideo } from "react-icons/fa"
+import { FaSearch, FaShoppingBag, FaLaptop, FaIcons, FaVideo } from "react-icons/fa"
 import { GiWorld } from "react-icons/gi"
 import { AiFillPicture, AiOutlineCode } from "react-icons/ai"
 import { ModeToggle } from "./toggleBtn"
 import { RiMenu4Fill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
+import { ImLab } from 'react-icons/im'
 
 export const NavLink = ({path, children, onClick, styling}) =>
    <Link id="smooth" to={path} onClick={onClick} className={styling}>
@@ -45,14 +46,14 @@ const NavBar = () => {
                Movies
             </NavLink>
 
-            <NavLink path={'/sports'} onClick={() => setActiveCategory('sports')} styling={`${activeCategory === 'sports' ? 'text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700' : 'text-sm p-5 border-b-2 ml-1 border-blue-700/0 hover:border-blue-700 hover:text-blue-700'}`}>
-               <FaBasketballBall className="inline -mt-1 pr-1" />
-               Sports
-            </NavLink>
-
             <NavLink path={'/fashion'} onClick={() => setActiveCategory('fashion')} styling={`${activeCategory === 'fashion' ? 'text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700' : 'text-sm p-5 ml-1 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700'}`}>
                <FaShoppingBag className="inline -mt-1 pr-1" />
                Fashion
+            </NavLink>
+
+            <NavLink path={'/science'} onClick={() => setActiveCategory('science')} styling={`${activeCategory === 'science' ? 'text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700' : 'text-sm p-5 border-b-2 ml-1 border-blue-700/0 hover:border-blue-700 hover:text-blue-700'}`}>
+               <ImLab className="inline -mt-1 pr-1" />
+               Science
             </NavLink>
 
             <NavLink path={'/tech'} onClick={() => setActiveCategory('tech')} styling={`${activeCategory === 'tech' ? 'text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700' : 'text-sm p-5 border-b-2 ml-1 border-blue-700/0 hover:border-blue-700 hover:text-blue-700'}`}>
@@ -104,15 +105,15 @@ const NavBar = () => {
             Movies
          </NavLink>
 
-         <NavLink path={'/sports'} styling={`${activeCategory === 'sports' ? 'block mx-3 py-[1rem] border-b border-b-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('sports')}>
-            <FaBasketballBall className="inline -mt-1 mr-3" />
-            Sports
-         </NavLink>
-
          <NavLink path={'/fashion'} styling={`${activeCategory === 'fashion' ? 'block mx-3 py-[1rem] border-b border-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('fashion')}>
             <FaShoppingBag className="inline -mt-1 mr-3" />
             Fashion
-            </NavLink>
+         </NavLink>
+
+         <NavLink path={'/science'} styling={`${activeCategory === 'science' ? 'block mx-3 py-[1rem] border-b border-b-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('science')}>
+            <ImLab className="inline -mt-1 mr-3" />
+            Science
+         </NavLink>
 
             <NavLink path={'/tech'} styling={`${activeCategory === 'tech' ? 'block mx-3 py-[1rem] border-b border-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('tech')}>
                <FaLaptop className="inline -mt-1 mr-3" />
@@ -154,14 +155,14 @@ const NavBar = () => {
                Movies
             </NavLink>
 
-            <NavLink path={'/sports'} styling={`${activeCategory === 'sports' ? 'block mx-3 py-[1rem] border-b border-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('sports')}>
-               <FaBasketballBall className="inline -mt-1 mr-3" />
-               Sports
-            </NavLink>
-
             <NavLink path={'/fashion'} styling={`${activeCategory === 'fashion' ? 'block mx-3 py-[1rem] border-b border-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('fashion')}>
                <FaShoppingBag className="inline -mt-1 mr-3" />
                Fashion
+            </NavLink>
+
+            <NavLink path={'/science'} styling={`${activeCategory === 'science' ? 'block mx-3 py-[1rem] border-b border-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('science')}>
+               <ImLab className="inline -mt-1 mr-3" />
+               Science
             </NavLink>
 
             <NavLink path={'/tech'} styling={`${activeCategory === 'tech' ? 'block mx-3 py-[1rem] border-b border-red-700 text-red-700' : 'block py-[1rem] mx-3'}`} onClick={() => menuFunc('tech')}>
