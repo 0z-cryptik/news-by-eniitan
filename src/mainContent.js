@@ -6,7 +6,7 @@ import { General } from "./components/general";
 import { Politics } from "./components/politics";
 import { Movies } from "./components/movies";
 import { Fashion } from "./components/fashion";
-import { Science } from "./components/sport";
+import { Science } from "./components/science";
 import { Tech } from "./components/tech";
 import { SearchComp } from "./components/searchplace";
 import { ListProvider } from "./components/myHooks";
