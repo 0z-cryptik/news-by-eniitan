@@ -53,14 +53,7 @@ export const SearchComp = () => {
       setFetchLoading(true)
       fetchData(page + 1)
    }
-
-   const prevHandler = () => {
-      setPage(prevPage => prevPage - 1)
-      setLoading(true)
-      fetchData(page - 1)
-   }
     
-
    useEffect(() => {
       setActiveCategory('search')
    }, [])
