@@ -6,7 +6,7 @@ import { General } from "./components/general";
 import { Politics } from "./components/politics";
 import { Movies } from "./components/movies";
 import { Fashion } from "./components/fashion";
-import { Sport } from "./components/sport";
+import { Science } from "./components/sport";
 import { Tech } from "./components/tech";
 import { SearchComp } from "./components/searchplace";
 import { ListProvider } from "./components/myHooks";
@@ -29,7 +29,7 @@ export const MainCon = () => {
                 <Route path="/politics" element={<Politics />} />
                 <Route path="/movies" element={<Movies />} />
                 <Route path="/fashion" element={<Fashion />} />
-                <Route path="/sports" element={<Sport />} />
+                <Route path="/science" element={<Science />} />
                 <Route path="/tech" element={<Tech />} />
                 <Route path="/search" element={<SearchComp />} />
             </Route>
