@@ -5,6 +5,8 @@ import BarLoader from "./barLoader";
 import { useList } from "./myHooks";
 import { key } from "./key";
 import { EmptyListPage } from "./errorpage";
+import { ImageLoader } from "./imageLoader";
+import { Img } from 'react-image'
 
 export const Arts = () => {
    const { dark, setActiveCategory } = useList()
@@ -38,7 +40,7 @@ export const Arts = () => {
 
             <figure className='order-2'>
 
-               <img id="op" src={item.multimedia[0].url} className='lg:hover:opacity-70 mb-5 h-[14rem] w-full' />
+               <Img id="op" src={[item.multimedia[0].url, item.multimedia[1].url, item.multimedia[2].url]} className='lg:hover:opacity-70 mb-5 h-[14rem] w-full' loader={<ImageLoader />} />
                <figcaption className='px-5 pb-6'>
 
                   <p className='mb-3 text-gray-600'>
