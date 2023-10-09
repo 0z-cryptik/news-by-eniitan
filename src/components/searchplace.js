@@ -6,7 +6,7 @@ import { useList } from "./myHooks";
 import { key } from "./key";
 import { Bars, Oval } from "react-loader-spinner";
 import { Img } from 'react-image'
-import { ImageLoader } from './imageLoader'
+import { ImageLoader, ImageUnLoader } from './imageLoader'
 
 export const SearchComp = () => {
    const { dark, setActiveCategory } = useList()
@@ -83,7 +83,8 @@ export const SearchComp = () => {
 
                <figure className='order-2'>
 
-                  <Img id="op" src={[`https://static01.nyt.com/${item.multimedia[0].url}`, `https://static01.nyt.com/${item.multimedia[1].url}`, `https://static01.nyt.com/${item.multimedia[2].url}`]} className='lg:hover:opacity-70 mb-5 h-[14rem] w-full' loader={<ImageLoader />} />
+                  <Img id="op" src={[`https://static01.nyt.com/${item.multimedia[0].url}`, `https://static01.nyt.com/${item.multimedia[1].url}`, `https://static01.nyt.com/${item.multimedia[2].url}`]} className='lg:hover:opacity-70 mb-5 h-[14rem] w-full' loader={<ImageLoader />} unloader={<ImageUnLoader />} />
+
                   <figcaption className='px-5 pb-6'>
 
                      <p className='mb-3 text-gray-600'>
