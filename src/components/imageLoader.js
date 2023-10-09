@@ -5,7 +5,7 @@ export const ImageLoader = () => {
 
     const { dark } = useList()
 
-    return <div className="w-full h-[14rem] flex justify-center items-center bg-gray-600">
+    return <div className={`w-full h-[14rem] flex justify-center items-center ${dark ? 'bg-gray-600' : 'bg-gray-300'}`}>
         <Oval color="white" secondaryColor="gray" />
     </div>
 }
