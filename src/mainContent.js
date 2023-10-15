@@ -11,30 +11,59 @@ import { Tech } from "./components/tech";
 import { SearchComp } from "./components/searchplace";
 import { ListProvider } from "./components/myHooks";
 import { useNavigate } from "react-router-dom";
-import { ErrorPage } from "./components/errorpage"
+import { ErrorPage } from "./components/errorpage";
 
 export const MainCon = () => {
+  let navigate = useNavigate();
 
-    let navigate = useNavigate()
+  useEffect(() => {
+    navigate("/general");
+  }, []);
 
-    useEffect(() => {
-      navigate('/general')
-    }, [])
-
-    return <ListProvider>
-        <Routes>
-            <Route path="/" element={<App />}>
-                <Route path="/general" element={<General />} />
-                <Route path="/arts" element={<Arts />} />
-                <Route path="/politics" element={<Politics />} />
-                <Route path="/movies" element={<Movies />} />
-                <Route path="/fashion" element={<Fashion />} />
-                <Route path="/science" element={<Science />} />
-                <Route path="/tech" element={<Tech />} />
-                <Route path="/search" element={<SearchComp />} />
-            </Route>
-            <Route path="*" element={<ErrorPage />} />
-            
-        </Routes>
+  return (
+    <ListProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={<App />}>
+          <Route
+            path="/general"
+            element={<General />}
+          />
+          <Route
+            path="/arts"
+            element={<Arts />}
+          />
+          <Route
+            path="/politics"
+            element={<Politics />}
+          />
+          <Route
+            path="/movies"
+            element={<Movies />}
+          />
+          <Route
+            path="/fashion"
+            element={<Fashion />}
+          />
+          <Route
+            path="/science"
+            element={<Science />}
+          />
+          <Route
+            path="/tech"
+            element={<Tech />}
+          />
+          <Route
+            path="/search"
+            element={<SearchComp />}
+          />
+        </Route>
+        <Route
+          path="*"
+          element={<ErrorPage />}
+        />
+      </Routes>
     </ListProvider>
-}
+  );
+};
