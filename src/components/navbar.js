@@ -169,7 +169,7 @@ const NavBar = () => {
               : "translate3d(100vw, 0, 0)"
           }`,
           zIndex: "30",
-          transition: "transform .3s linear",
+          transition: "transform .2s linear",
         }}
         className={`${
           dark
@@ -282,7 +282,7 @@ const NavBar = () => {
 
         <span
           id="logo"
-          className={`w-[80%] mx-auto mt-auto ${
+          className={`w-fit mx-auto mt-auto ${
             dark ? "text-gray-700" : "text-gray-300"
           }`}>
           <AiOutlineCode
@@ -305,8 +305,8 @@ const NavBar = () => {
         }}
         className={`${
           dark
-            ? `fixed md:flex flex-col w-[40%] hidden h-[100vh] bg-black text-white text-xl pb-6`
-            : `fixed bg-white md:flex flex-col w-[40%] h-[100vh] hidden text-black text-xl pb-6`
+            ? `fixed md:flex flex-col w-[40%] hidden lg:hidden h-[100vh] bg-black text-white text-xl pb-6`
+            : `fixed bg-white md:flex lg:hidden flex-col w-[40%] h-[100vh] hidden text-black text-xl pb-6`
         }`}>
         <button
           onClick={() => setViewMenu(false)}
@@ -427,8 +427,9 @@ const NavBar = () => {
 
       {viewMenu && (
         <div
+          onClick={() => setViewMenu(false)}
           id="overlay"
-          className="z-20"></div>
+          className="z-20 lg:hidden"></div>
       )}
     </div>
   );
