@@ -10,7 +10,7 @@ The News Web App is a user-friendly web application that allows users to enjoy n
 
 - **User Preference Memory:** The web app remembers the user's selected mode and automatically applies it upon their return.
 
-- **Responsive Design:** The application is designed to provide an optimal experience on phones, PCs and tablets, with a user-friendly menu for easy navigation between different news categories (on phones & tablets).
+- **News Search:** Users can search for news about topics and events that interests them.
 
 ## Usage
 
