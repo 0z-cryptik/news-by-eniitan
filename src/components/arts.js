@@ -1,42 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { timeFunc } from "./timeStuff";
 import axios from "axios";
 import BarLoader from "./barLoader";
-import { useList } from "./myHooks";
+import { useList, useGetNews } from "./myHooks";
 import { key } from "./key";
 import { EmptyListPage } from "./errorpage";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";
 import { Img } from "react-image";
+import { useQuery } from "react-query";
 
 export const Arts = () => {
   const { dark, setActiveCategory } = useList();
-  const [list, setList] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
 
-  const conList = list.filter(
-    (item) => item.multimedia && item.multimedia.length
-  );
+  const [getNews] = useGetNews("arts");
+
+  const { data, error, isLoading } = useQuery("artsNews", getNews);
 
   useEffect(() => {
     setActiveCategory("arts");
-    setLoading(true);
-    axios(
-      `https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${key}`
-    )
-      .then((result) => {
-        setList(result.data.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
   }, []);
 
-  if (error && !conList.length) return <EmptyListPage />;
+  if (error && !data.length) return <EmptyListPage />;
 
-  if (loading) return <BarLoader />;
+  if (isLoading) return <BarLoader />;
 
   return (
     <div
@@ -46,7 +32,7 @@ export const Arts = () => {
           ? `bg-black pt-[4rem] lg:pt-[7rem] text-white md:grid md:grid-cols-2 md:gap-10 md:px-8 md:pb-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8`
           : ` md:grid md:grid-cols-2 md:gap-10 md:px-8 md:pb-8 pt-[4rem] lg:pt-[7rem] lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8`
       }`}>
-      {conList.map((item, i) => (
+      {data.map((item, i) => (
         <div
           key={i}
           className={`flex flex-col md:border items-center overflow-hidden`}>
@@ -56,7 +42,7 @@ export const Arts = () => {
               src={[
                 item.multimedia[0].url,
                 item.multimedia[1].url,
-                item.multimedia[2].url,
+                item.multimedia[2].url
               ]}
               className="lg:hover:opacity-70 mb-5 h-[14rem] w-full"
               loader={<ImageLoader />}

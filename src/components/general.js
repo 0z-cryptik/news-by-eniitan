@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { timeFunc } from "./timeStuff";
-import axios from "axios";
 import BarLoader from "./barLoader";
-import { useList } from "./myHooks";
-import { key } from "./key";
+import { useList, useGetNews } from "./myHooks";
 import { EmptyListPage } from "./errorpage";
 import { Img } from "react-image";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";
 import { useQuery } from "react-query";
-import { useGetNews } from "./myHooks";
 
 export const General = () => {
   const { dark, setActiveCategory } = useList();
-  
-  const [getNews] = useGetNews('home')
 
-  const { data, error, isLoading } = useQuery(
-    "getGeneralNews",
-    getNews
-  );
+  const [getNews] = useGetNews("home");
+
+  const { data, error, isLoading } = useQuery("generalNews", getNews);
 
   useEffect(() => {
     setActiveCategory("general");
