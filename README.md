@@ -12,6 +12,8 @@ The News Web App is a user-friendly web application that allows users to enjoy n
 
 - **News Search:** Users can search for news about topics and events that interests them.
 
+- **Caching:** Every news data is cached using React Query, ensuring that the application doesn't redundantly fetch news when users revisit categories they've previously viewed. This optimizes performance and minimizes unnecessary data fetching.
+
 ## Usage
 
 To use the News Web App, follow these steps:
