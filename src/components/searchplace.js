@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Search } from "./search";
 import axios from "axios";
-import { timeFunc } from "./timeStuff";
-import { useList } from "./myHooks";
-import { key } from "./key";
+import {timeFunc} from '../hooks&functions/timeHandler';
+import { useList } from "../hooks&functions/myHooks";
 import { Bars, Oval } from "react-loader-spinner";
 import { Img } from "react-image";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";
@@ -27,7 +26,7 @@ export const SearchComp = () => {
     e.preventDefault();
     setLoading(true);
     axios(
-      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchTerm}&sort=newest&api-key=${key}`
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
     )
       .then((result) => {
         setSearchList(result.data.response.docs);
@@ -41,7 +40,7 @@ export const SearchComp = () => {
 
   const fetchData = (pageNumber) => {
     axios(
-      `https://api.nytimes.com/svc/search/v2/articlesearch.json?page=${pageNumber}&q=${searchTerm}&sort=newest&api-key=${key}`
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?page=${pageNumber}&q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
     )
       .then((result) => {
         setSearchList([...searchList, ...result.data.response.docs]);

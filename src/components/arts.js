@@ -1,9 +1,7 @@
 import { useEffect } from "react";
-import { timeFunc } from "./timeStuff";
-import axios from "axios";
 import BarLoader from "./barLoader";
-import { useList, useGetNews } from "./myHooks";
-import { key } from "./key";
+import {timeFunc} from '../hooks&functions/timeHandler';
+import { useList, useGetNews } from "../hooks&functions/myHooks";
 import { EmptyListPage } from "./errorpage";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";
 import { Img } from "react-image";

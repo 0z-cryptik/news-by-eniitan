@@ -1,5 +1,5 @@
 import { ThemeIconButton } from "react-simple-animated-dark-mode-button";
-import { useList } from "./myHooks";
+import { useList } from "../hooks&functions/myHooks";
 
 export const ModeToggle = () => {
   const { dark, setDark } = useList();

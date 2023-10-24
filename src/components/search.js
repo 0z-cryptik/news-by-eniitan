@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { useList } from "./myHooks";
+import { useList } from "../hooks&functions/myHooks";
 import { FaSearch } from "react-icons/fa";
 
 const Search = ({ onSubmit, val, onChange }) => {

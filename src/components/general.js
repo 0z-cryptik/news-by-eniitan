@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { timeFunc } from "./timeStuff";
+import {timeFunc} from '../hooks&functions/timeHandler';
+import { useList, useGetNews } from "../hooks&functions/myHooks";
 import BarLoader from "./barLoader";
-import { useList, useGetNews } from "./myHooks";
 import { EmptyListPage } from "./errorpage";
 import { Img } from "react-image";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";

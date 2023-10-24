@@ -1,7 +1,6 @@
 import React, { useContext, createContext, useState } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import axios from "axios";
-import { key } from "./key";
 
 export const ListContext = createContext();
 export const useList = () => useContext(ListContext);
@@ -29,11 +28,10 @@ export const ListProvider = ({ children }) => {
 export const useGetNews = (category) => {
   const getNews = async () => {
     const news = await axios(
-      `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${key}`
+      `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${process.env.REACT_APP_API_KEY}`
     );
 
     const posts = news.data.results;
-    console.log(posts);
 
     const filteredList = posts.filter(
       (item) => item.multimedia && item.multimedia.length

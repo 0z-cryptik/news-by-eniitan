@@ -1,4 +1,4 @@
-import { useList } from "./myHooks";
+import { useList } from "../hooks&functions/myHooks";
 import { Oval } from "react-loader-spinner";
 
 export const ImageLoader = () => {

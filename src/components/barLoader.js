@@ -1,5 +1,5 @@
 import { Bars } from "react-loader-spinner";
-import { useList } from "./myHooks";
+import { useList } from "../hooks&functions/myHooks";
 
 const BarLoader = () => {
   const { dark } = useList();

@@ -9,7 +9,7 @@ import { Fashion } from "./components/fashion";
 import { Science } from "./components/science";
 import { Tech } from "./components/tech";
 import { SearchComp } from "./components/searchplace";
-import { ListProvider } from "./components/myHooks";
+import { ListProvider } from "./hooks&functions/myHooks";
 import { useNavigate } from "react-router-dom";
 import { ErrorPage } from "./components/errorpage";
 import { QueryClient, QueryClientProvider } from "react-query";
