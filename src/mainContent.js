@@ -12,6 +12,9 @@ import { SearchComp } from "./components/searchplace";
 import { ListProvider } from "./components/myHooks";
 import { useNavigate } from "react-router-dom";
 import { ErrorPage } from "./components/errorpage";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 export const MainCon = () => {
   let navigate = useNavigate();
@@ -22,48 +25,50 @@ export const MainCon = () => {
 
   return (
     <ListProvider>
-      <Routes>
-        <Route
-          path="/"
-          element={<App />}>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
           <Route
-            path="/general"
-            element={<General />}
-          />
+            path="/"
+            element={<App />}>
+            <Route
+              path="/general"
+              element={<General />}
+            />
+            <Route
+              path="/arts"
+              element={<Arts />}
+            />
+            <Route
+              path="/politics"
+              element={<Politics />}
+            />
+            <Route
+              path="/movies"
+              element={<Movies />}
+            />
+            <Route
+              path="/fashion"
+              element={<Fashion />}
+            />
+            <Route
+              path="/science"
+              element={<Science />}
+            />
+            <Route
+              path="/tech"
+              element={<Tech />}
+            />
+            <Route
+              path="/search"
+              element={<SearchComp />}
+            />
+          </Route>
           <Route
-            path="/arts"
-            element={<Arts />}
+            path="*"
+            element={<ErrorPage />}
           />
-          <Route
-            path="/politics"
-            element={<Politics />}
-          />
-          <Route
-            path="/movies"
-            element={<Movies />}
-          />
-          <Route
-            path="/fashion"
-            element={<Fashion />}
-          />
-          <Route
-            path="/science"
-            element={<Science />}
-          />
-          <Route
-            path="/tech"
-            element={<Tech />}
-          />
-          <Route
-            path="/search"
-            element={<SearchComp />}
-          />
-        </Route>
-        <Route
-          path="*"
-          element={<ErrorPage />}
-        />
-      </Routes>
+        </Routes>
+      </QueryClientProvider>
     </ListProvider>
   );
 };
