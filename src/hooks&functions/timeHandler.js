@@ -1,4 +1,4 @@
-const timeFunc = (timeStamp) => {
+export const timeFunc = (timeStamp) => {
   const oneMinute = 1000 * 60;
   const oneHour = oneMinute * 60;
   const oneDay = oneHour * 24;
@@ -20,5 +20,3 @@ const timeFunc = (timeStamp) => {
     return `${daysAgo} day${daysAgo > 1 ? "s" : ""} ago`;
   }
 };
-
-export { timeFunc };

@@ -1,7 +1,5 @@
 import { useEffect } from "react";
-import BarLoader from "./barLoader";
 import { useList, useGetNews } from "../hooks&functions/myHooks";
-import { EmptyListPage } from "./errorpage";
 import { useQuery } from "react-query";
 import { News } from "./news";
 

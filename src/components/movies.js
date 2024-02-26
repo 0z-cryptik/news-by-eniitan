@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useList, useGetNews } from "../hooks&functions/myHooks";
 import { useQuery } from "react-query";
-import { News } from "./content";
+import { News } from "./news";
 
 export const Movies = () => {
   const { setActiveCategory } = useList();

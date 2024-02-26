@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useList, useGetNews } from "../hooks&functions/myHooks";
-import BarLoader from "./barLoader";
-import { EmptyListPage } from "./errorpage";
 import { useQuery } from "react-query";
-import { News } from "./content";
+import { News } from "./news";
 
 export const General = () => {
   const { setActiveCategory } = useList();

@@ -14,7 +14,6 @@ export const SearchComp = () => {
   const [page, setPage] = useState(0);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [searchList, setSearchList] = useState([]);
-  const [error, setError] = useState(null);
 
   const conSearchList = searchList.filter(
     (item) => item.multimedia && item.multimedia.length

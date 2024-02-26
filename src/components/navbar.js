@@ -16,7 +16,7 @@ import { Category4NavBar, NavLink } from "./navlink";
 import { SearchButton4NavBar } from "./search";
 
 export const NavBar = () => {
-  const { dark, activeCategory, setActiveCategory, setViewMenu } =
+  const { dark, setViewMenu } =
     useList();
 
   return (
