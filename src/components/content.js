@@ -2,9 +2,20 @@ import { useList } from "../hooks&functions/myHooks";
 import { Img } from "react-image";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";
 import { timeFunc } from "../hooks&functions/timeHandler";
+import { EmptyListPage } from "./errorpage";
+import BarLoader from "./barLoader";
 
-export const News = ({ data }) => {
+export const News = ({ data=[] , error, loading }) => {
   const { dark } = useList();
+
+  if (!data.length && error) {
+    return <EmptyListPage />;
+  }
+
+  if (loading) {
+    return <BarLoader />;
+  }
+
   return (
     <div
       id="bg"
@@ -37,7 +48,8 @@ export const News = ({ data }) => {
               <a
                 href={item.url}
                 target="_blank"
-                className="text-2xl cursor-pointer font-bold">
+                className="text-2xl cursor-pointer font-bold"
+                rel="noreferrer">
                 {item.title}
               </a>
 

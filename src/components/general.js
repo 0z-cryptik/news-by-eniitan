@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { News } from "./content";
 
 export const General = () => {
-  const { dark, setActiveCategory } = useList();
+  const { setActiveCategory } = useList();
 
   const [getNews] = useGetNews("home");
 
@@ -16,9 +16,11 @@ export const General = () => {
     setActiveCategory("general");
   }, []);
 
-  if (error && !data.length) return <EmptyListPage />;
-
-  if (isLoading) return <BarLoader />;
-
-  return <News data={data} />;
+  return (
+    <News
+      data={data}
+      loading={isLoading}
+      error={error}
+    />
+  );
 };

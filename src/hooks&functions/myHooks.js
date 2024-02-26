@@ -33,7 +33,9 @@ export const useGetNews = (category) => {
 
     const posts = await news.data.results;
 
-    const filteredList = posts.filter((item) => item.multimedia.length);
+    const filteredList = posts.filter(
+      (item) => item.multimedia && item.multimedia.length
+    );
 
     return filteredList;
   };

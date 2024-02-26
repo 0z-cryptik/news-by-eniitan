@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import BarLoader from "./barLoader";
-import { timeFunc } from "../hooks&functions/timeHandler";
 import { useList, useGetNews } from "../hooks&functions/myHooks";
 import { EmptyListPage } from "./errorpage";
-import { ImageLoader, ImageUnLoader } from "./imageLoader";
-import { Img } from "react-image";
 import { useQuery } from "react-query";
 import { News } from "./content";
 
@@ -19,9 +16,11 @@ export const Arts = () => {
     setActiveCategory("arts");
   }, []);
 
-  if (error && !data.length) return <EmptyListPage />;
-
-  if (isLoading) return <BarLoader />;
-
-  return <News data={data} />;
+  return (
+    <News
+      data={data}
+      loading={isLoading}
+      error={error}
+    />
+  );
 };
