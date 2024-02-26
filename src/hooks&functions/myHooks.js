@@ -9,6 +9,10 @@ export const ListProvider = ({ children }) => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [dark, setDark] = useLocalStorage("darkMode", true);
   const [viewMenu, setViewMenu] = useState(false);
+  const menuFunc = (category) => {
+    setActiveCategory(category);
+    setViewMenu(false);
+  };
 
   return (
     <ListContext.Provider
@@ -18,7 +22,8 @@ export const ListProvider = ({ children }) => {
         dark,
         setDark,
         viewMenu,
-        setViewMenu
+        setViewMenu,
+        menuFunc
       }}>
       {children}
     </ListContext.Provider>
