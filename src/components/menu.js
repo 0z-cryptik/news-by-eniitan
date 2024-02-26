@@ -5,7 +5,7 @@ import { GiWorld } from "react-icons/gi";
 import { AiFillPicture, AiOutlineCode } from "react-icons/ai";
 import { ImLab } from "react-icons/im";
 import { Category } from "./navlink";
-import { SearchButton } from "./search";
+import { SearchButton4MenuBar } from "./search";
 
 export const Menu = ({ device }) => {
   const { viewMenu, dark, setViewMenu } = useList();
@@ -48,7 +48,7 @@ export const Menu = ({ device }) => {
         <MdCancelPresentation size={"2rem"} />
       </button>
 
-      <SearchButton />
+      <SearchButton4MenuBar />
 
       <Category
         path={"/general"}

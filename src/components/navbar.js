@@ -12,16 +12,12 @@ import { AiFillPicture } from "react-icons/ai";
 import { ModeToggle } from "./toggleBtn";
 import { RiMenu4Fill } from "react-icons/ri";
 import { ImLab } from "react-icons/im";
-import { NavLink } from "./navlink";
+import { Category4NavBar, NavLink } from "./navlink";
+import { SearchButton4NavBar } from "./search";
 
 export const NavBar = () => {
-  const {
-    dark,
-    activeCategory,
-    setActiveCategory,
-    setViewMenu,
-  } = useList();
-
+  const { dark, activeCategory, setActiveCategory, setViewMenu } =
+    useList();
 
   return (
     <div>
@@ -33,109 +29,60 @@ export const NavBar = () => {
             : "bg-slate-300 pt-3 flex fixed z-10 w-full flex-row h-[4rem]"
         }`}>
         <div className="hidden lg:block">
-          <NavLink
-            path={"/general"}
-            onClick={() => setActiveCategory("general")}
-            styling={`${
-              activeCategory === "general"
-                ? "text-sm p-5 border-b-2 border-blue-700 text-blue-700"
-                : "text-sm p-5 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+          <Category4NavBar
+            category={"general"}
+            path={"/general"}>
             <FaIcons className="inline -mt-1 pr-1" />
             General
-          </NavLink>
+          </Category4NavBar>
 
-          <NavLink
+          <Category4NavBar
             path={"/arts"}
-            onClick={() => setActiveCategory("arts")}
-            styling={`${
-              activeCategory === "arts"
-                ? "text-sm p-5 border-b-2 border-blue-700 text-blue-700 ml-1"
-                : "text-sm p-5 border-b-2 ml-1 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+            category={"arts"}>
             <AiFillPicture className="inline -mt-1 pr-1" />
             Arts
-          </NavLink>
+          </Category4NavBar>
 
-          <NavLink
+          <Category4NavBar
             path={"/politics"}
-            onClick={() => setActiveCategory("politics")}
-            styling={`${
-              activeCategory === "politics"
-                ? "text-sm p-5 ml-1 border-b-2 border-blue-700 text-blue-700"
-                : "text-sm ml-1  p-5 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+            category={"politics"}>
             <GiWorld className="inline -mt-1 pr-1" />
             Politics
-          </NavLink>
+          </Category4NavBar>
 
-          <NavLink
+          <Category4NavBar
             path={"/movies"}
-            onClick={() => setActiveCategory("movies")}
-            styling={`${
-              activeCategory === "movies"
-                ? "text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700"
-                : "text-sm ml-1 p-5 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+            category={"movies"}>
             <FaVideo className="inline -mt-1 pr-1" />
             Movies
-          </NavLink>
+          </Category4NavBar>
 
-          <NavLink
+          <Category4NavBar
             path={"/fashion"}
-            onClick={() => setActiveCategory("fashion")}
-            styling={`${
-              activeCategory === "fashion"
-                ? "text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700"
-                : "text-sm p-5 ml-1 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+            category={"fashion"}>
             <FaShoppingBag className="inline -mt-1 pr-1" />
             Fashion
-          </NavLink>
+          </Category4NavBar>
 
-          <NavLink
+          <Category4NavBar
             path={"/science"}
-            onClick={() => setActiveCategory("science")}
-            styling={`${
-              activeCategory === "science"
-                ? "text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700"
-                : "text-sm p-5 border-b-2 ml-1 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+            category={"science"}>
             <ImLab className="inline -mt-1 pr-1" />
             Science
-          </NavLink>
+          </Category4NavBar>
 
-          <NavLink
+          <Category4NavBar
             path={"/tech"}
-            onClick={() => setActiveCategory("tech")}
-            styling={`${
-              activeCategory === "tech"
-                ? "text-sm p-5 border-b-2 border-blue-700 ml-1 text-blue-700"
-                : "text-sm p-5 border-b-2 ml-1 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-            }`}>
+            category={"tech"}>
             <FaLaptop className="inline -mt-1 pr-1" />
             Technology
-          </NavLink>
+          </Category4NavBar>
         </div>
 
         <span className="flex-grow text-right pr-4">
           <ModeToggle />
 
-          <NavLink
-            path={"/search"}
-            styling={`${
-              activeCategory === "search"
-                ? "text-sm p-5 hidden lg:inline text-blue-700 "
-                : " text-sm p-5 hidden lg:inline hover:text-blue-700"
-            }`}
-            onClick={() => {
-              setActiveCategory("search");
-            }}>
-            <FaSearch
-              className="inline hover:scale-110"
-              size={"1.5rem"}
-            />
-          </NavLink>
+          <SearchButton4NavBar />
 
           <button
             onClick={() => setViewMenu(true)}

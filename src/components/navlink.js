@@ -26,3 +26,17 @@ export const Category = ({ path, category, children }) => {
     </NavLink>
   );
 };
+
+export const Category4NavBar = ({path, category, children}) => {
+const {setActiveCategory, activeCategory} = useList()
+  return <NavLink
+  path={path}
+  onClick={() => setActiveCategory(category)}
+  styling={`${
+    activeCategory === category
+      ? "text-sm p-5 border-b-2 border-blue-700 text-blue-700"
+      : "text-sm p-5 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
+  }`}>
+  {children}
+</NavLink>
+}

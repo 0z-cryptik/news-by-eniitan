@@ -3,7 +3,7 @@ import BarLoader from "./barLoader";
 import { useList, useGetNews } from "../hooks&functions/myHooks";
 import { EmptyListPage } from "./errorpage";
 import { useQuery } from "react-query";
-import { News } from "./content";
+import { News } from "./news";
 
 export const Arts = () => {
   const { dark, setActiveCategory } = useList();

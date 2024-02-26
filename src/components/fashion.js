@@ -6,7 +6,7 @@ import { EmptyListPage } from "./errorpage";
 import { Img } from "react-image";
 import { ImageLoader, ImageUnLoader } from "./imageLoader";
 import { useQuery } from "react-query";
-import { News } from "./content";
+import { News } from "./news";
 
 export const Fashion = () => {
   const { setActiveCategory } = useList();
