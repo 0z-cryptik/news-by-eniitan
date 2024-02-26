@@ -20,7 +20,6 @@ export const NavBar = () => {
     activeCategory,
     setActiveCategory,
     setViewMenu,
-    viewMenu
   } = useList();
 
 

@@ -1,8 +1,9 @@
 import { useRef, useEffect } from "react";
 import { useList } from "../hooks&functions/myHooks";
 import { FaSearch } from "react-icons/fa";
+import { NavLink } from "./navlink";;
 
-const Search = ({ onSubmit, val, onChange }) => {
+export const Search = ({ onSubmit, val, onChange }) => {
   let { dark } = useList();
   let text = useRef();
 
@@ -57,4 +58,21 @@ const Search = ({ onSubmit, val, onChange }) => {
   );
 };
 
-export { Search };
+export const SearchButton = () => {
+const {activeCategory,menuFunc} = useList()
+  return (
+    <NavLink
+      path={"/search"}
+      styling={`${
+        activeCategory === "search"
+          ? "text-red-700 block border-b-[0.5px] border-b-gray-700 w-[90%] mx-auto pb-6 my-6"
+          : "block border-b-[0.5px] border-b-gray-700 w-[90%] mx-auto pb-6 my-6"
+      }`}
+      onClick={() => menuFunc("search")}>
+      <FaSearch
+        size={"2rem"}
+        className="mx-auto"
+      />
+    </NavLink>
+  );
+};
