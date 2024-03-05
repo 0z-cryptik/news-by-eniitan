@@ -30,7 +30,7 @@ export const Search = ({ onSubmit, val, onChange }) => {
             value={val}
             placeholder="search anything..."
             onChange={onChange}
-            className={`w-[75%] md:w-[85%] h-[90%] focus:outline-none rounded-xl ${
+            className={`w-[75%] md:w-[85%] h-[80%] focus:outline-none rounded-xl ${
               dark ? "bg-black text-white" : ""
             }`}
           />
