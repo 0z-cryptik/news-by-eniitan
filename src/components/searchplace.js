@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Search } from "./search";
 import axios from "axios";
-import {timeFunc} from '../hooks&functions/timeHandler';
+import { timeFunc } from "../hooks&functions/timeHandler";
 import { useList } from "../hooks&functions/myHooks";
 import { Bars, Oval } from "react-loader-spinner";
 import { Img } from "react-image";
@@ -21,35 +21,34 @@ export const SearchComp = () => {
 
   let onSearchchange = (e) => setSearchTerm(e.target.value);
 
-  let onSearchSubmit = (e) => {
+  const onSearchSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    axios(
-      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
-    )
-      .then((result) => {
-        setSearchList(result.data.response.docs);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+    try {
+      const res = await axios(
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
+      );
+      const results = await res.data.response.docs;
+      setSearchList(results);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
   };
 
-  const fetchData = (pageNumber) => {
-    axios(
-      `https://api.nytimes.com/svc/search/v2/articlesearch.json?page=${pageNumber}&q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
-    )
-      .then((result) => {
-        setSearchList([...searchList, ...result.data.response.docs]);
-        setFetchLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setPage((prevPage) => prevPage - 1);
-        setFetchLoading(false);
-      });
+  const fetchData = async (pageNumber) => {
+    try {
+      const res = await axios(
+        `https://api.nytimes.com/svc/search/v2/articlesearch.json?page=${pageNumber}&q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
+      );
+      setSearchList([...searchList, ...res.data.response.docs]);
+      setFetchLoading(false);
+    } catch (err) {
+      console.log(err);
+      setPage((prevPage) => prevPage - 1);
+      setFetchLoading(false);
+    }
   };
 
   const fetchHandler = () => {
@@ -128,7 +127,7 @@ export const SearchComp = () => {
                 src={[
                   `https://static01.nyt.com/${item.multimedia[0].url}`,
                   `https://static01.nyt.com/${item.multimedia[1].url}`,
-                  `https://static01.nyt.com/${item.multimedia[2].url}`,
+                  `https://static01.nyt.com/${item.multimedia[2].url}`
                 ]}
                 className="lg:hover:opacity-70 mb-5 h-[14rem] w-full"
                 loader={<ImageLoader />}
@@ -164,7 +163,7 @@ export const SearchComp = () => {
           wrapperStyle={{
             display: `${fetchLoading ? "flex" : "none"}`,
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "center"
           }}
         />
       </div>
