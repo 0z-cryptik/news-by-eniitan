@@ -18,16 +18,11 @@ export const Search = ({ onSubmit, val, onChange }) => {
 
   return (
     <center>
-      <div
-        className={`${
-          dark ? `w-full bg-black xl:py-5` : `w-full xl:py-5`
-        }`}>
+      <div className={`w-full xl:py-5 ${dark ? `bg-black` : ``}`}>
         <form
           onSubmit={submitHandler}
-          className={`${
-            dark
-              ? `bg-black w-[60%] pl-2 h-[3rem] border rounded-xl my-5`
-              : `bg-white w-[60%] h-[3rem] pl-2 border rounded-xl my-5`
+          className={`w-[60%] pl-2 h-[3rem] border rounded-xl my-5 ${
+            dark ? `bg-black` : `bg-white`
           }`}>
           <input
             type="text"
@@ -35,20 +30,18 @@ export const Search = ({ onSubmit, val, onChange }) => {
             value={val}
             placeholder="search anything..."
             onChange={onChange}
-            className={`${
-              dark
-                ? "w-[75%] md:w-[85%] h-[90%] bg-black text-white focus:outline-none rounded-xl"
-                : "w-[75%] md:w-[85%] h-[90%] focus:outline-none rounded-xl"
+            className={`w-[75%] md:w-[85%] h-[90%] focus:outline-none rounded-xl ${
+              dark ? "bg-black text-white" : ""
             }`}
           />
 
           <button
             id="btns"
             type="submit"
-            className={`${
+            className={`border rounded-xl w-[25%] md:w-[15%] h-full ${
               dark
-                ? "bg-[#243744] border rounded-xl w-[25%] md:w-[15%] h-full lg:hover:bg-[#0C3758] lg:hover:text-white text-gray-400"
-                : `bg-blue-300 border rounded-xl w-[25%] md:w-[15%] h-full lg:hover:bg-gradient-to-r from-blue-200 to-blue-600 lg:hover:text-white`
+                ? "bg-[#243744] lg:hover:bg-[#0C3758] lg:hover:text-white text-gray-400"
+                : `bg-blue-300 lg:hover:bg-gradient-to-r from-blue-200 to-blue-600 lg:hover:text-white`
             }`}>
             <FaSearch className="mx-auto" />
           </button>
@@ -63,10 +56,10 @@ export const SearchButton4MenuBar = () => {
   return (
     <NavLink
       path={"/search"}
-      styling={`${
+      styling={`block border-b-[0.5px] border-b-gray-700 w-[90%] mx-auto pb-6 my-6 ${
         activeCategory === "search"
-          ? "text-red-700 block border-b-[0.5px] border-b-gray-700 w-[90%] mx-auto pb-6 my-6"
-          : "block border-b-[0.5px] border-b-gray-700 w-[90%] mx-auto pb-6 my-6"
+          ? "text-red-700  border-b-gray-700"
+          : ""
       }`}
       onClick={() => menuFunc("search")}>
       <FaSearch
@@ -82,10 +75,10 @@ export const SearchButton4NavBar = () => {
   return (
     <NavLink
       path={"/search"}
-      styling={`${
+      styling={`text-sm p-5 hidden lg:inline ${
         activeCategory === "search"
-          ? "text-sm p-5 hidden lg:inline text-blue-700 "
-          : " text-sm p-5 hidden lg:inline hover:text-blue-700"
+          ? "text-blue-700 "
+          : "hover:text-blue-700"
       }`}
       onClick={() => {
         setActiveCategory("search");

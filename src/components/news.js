@@ -5,7 +5,7 @@ import { timeFunc } from "../hooks&functions/timeHandler";
 import { EmptyListPage } from "./errorpage";
 import BarLoader from "./barLoader";
 
-export const News = ({ data=[] , error, loading }) => {
+export const News = ({ data = [], error, loading }) => {
   const { dark } = useList();
 
   if (!data.length && error) {
@@ -19,10 +19,8 @@ export const News = ({ data=[] , error, loading }) => {
   return (
     <div
       id="bg"
-      className={`${
-        dark
-          ? `bg-black pt-[4rem] lg:pt-[7rem] text-white md:grid md:grid-cols-2 md:gap-10 md:px-8 md:pb-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8`
-          : ` md:grid md:grid-cols-2 md:gap-10 md:px-8 md:pb-8 pt-[4rem] lg:pt-[7rem] lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8`
+      className={`pt-[4rem] lg:pt-[7rem] md:grid md:grid-cols-2 md:gap-10 md:px-8 md:pb-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8 ${
+        dark ? `bg-black  text-white ` : ``
       }`}>
       {data.map((item, i) => (
         <div

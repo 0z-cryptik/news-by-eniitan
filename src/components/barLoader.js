@@ -5,11 +5,7 @@ const BarLoader = () => {
   const { dark } = useList();
   return (
     <div
-      className={`${
-        dark
-          ? "bg-black h-screen flex items-center"
-          : "h-screen flex items-center"
-      }`}>
+      className={`h-screen flex items-center ${dark ? "bg-black  " : ""}`}>
       <Bars
         wrapperClass="mx-auto"
         color="blue"

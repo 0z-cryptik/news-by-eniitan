@@ -7,10 +7,8 @@ export const ErrorPage = () => {
 
   return (
     <div
-      className={`${
-        dark
-          ? "text-white flex flex-col px-6 text-center justify-center items-center bg-black h-[100vh] w-[100vw]"
-          : "text-black h-[100vh] w-[100vw] flex flex-col justify-center items-center"
+      className={`flex flex-col px-6 text-center justify-center items-center h-[100vh] w-[100vw] ${
+        dark ? "text-white bg-black" : "text-black"
       }`}>
       <h1 className="text-6xl font-bold">Error 404</h1>
 
@@ -21,10 +19,10 @@ export const ErrorPage = () => {
       <button
         id="btns"
         onClick={() => navigate("/general")}
-        className={`${
+        className={`bg-transparent h-[3rem] w-[13rem] text-center mt-[6rem] rounded-md border ${
           dark
-            ? "bg-transparent h-[3rem] w-[13rem] text-center mt-[6rem] rounded-md border border-white hover:text-red-700 hover:border-red-700"
-            : "bg-transparent h-[3rem] w-[13rem] text-center mt-[6rem] rounded-md border border-black hover:text-blue-700 hover:border-blue-700"
+            ? "border-white hover:text-red-700 hover:border-red-700"
+            : "border-black hover:text-blue-700 hover:border-blue-700"
         }`}>
         Go Back To The Homepage
       </button>
@@ -37,10 +35,8 @@ export const EmptyListPage = () => {
 
   return (
     <div
-      className={`${
-        dark
-          ? "text-white flex flex-col px-6 text-center justify-center items-center bg-black h-[100vh] w-[100vw]"
-          : "text-black h-[100vh] w-[100vw] flex flex-col justify-center items-center"
+      className={`flex flex-col px-6 text-center justify-center items-center h-[100vh] w-[100vw] ${
+        dark ? "text-white bg-black" : "text-black"
       }`}>
       <h1 className="text-6xl font-bold">Oops</h1>
       <p className="text-xl mt-6">

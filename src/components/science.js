@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { News } from "./news"
 
 export const Science = () => {
-  const { dark, setActiveCategory } = useList();
+  const { setActiveCategory } = useList();
 
   const [getNews] = useGetNews("science");
 

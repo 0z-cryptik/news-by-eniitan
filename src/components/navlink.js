@@ -16,10 +16,10 @@ export const Category = ({ path, category, children }) => {
   return (
     <NavLink
       path={path}
-      styling={`${
+      styling={`block py-[1rem] mx-3 ${
         activeCategory === category
-          ? "block mx-3 py-[1rem] border-b border-red-700 text-red-700"
-          : "block py-[1rem] mx-3"
+          ? "border-b border-red-700 text-red-700"
+          : ""
       }`}
       onClick={() => menuFunc(category)}>
       {children}
@@ -27,16 +27,18 @@ export const Category = ({ path, category, children }) => {
   );
 };
 
-export const Category4NavBar = ({path, category, children}) => {
-const {setActiveCategory, activeCategory} = useList()
-  return <NavLink
-  path={path}
-  onClick={() => setActiveCategory(category)}
-  styling={`${
-    activeCategory === category
-      ? "text-sm p-5 border-b-2 border-blue-700 text-blue-700"
-      : "text-sm p-5 border-b-2 border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
-  }`}>
-  {children}
-</NavLink>
-}
+export const Category4NavBar = ({ path, category, children }) => {
+  const { setActiveCategory, activeCategory } = useList();
+  return (
+    <NavLink
+      path={path}
+      onClick={() => setActiveCategory(category)}
+      styling={`text-sm p-5 border-b-2 ${
+        activeCategory === category
+          ? "border-blue-700 text-blue-700"
+          : "border-blue-700/0 hover:border-blue-700 hover:text-blue-700"
+      }`}>
+      {children}
+    </NavLink>
+  );
+};

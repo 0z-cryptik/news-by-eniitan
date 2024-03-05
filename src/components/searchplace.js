@@ -61,14 +61,9 @@ export const SearchComp = () => {
     setActiveCategory("search");
   }, []);
 
-  if (loading)
+  if (loading) {
     return (
-      <div
-        className={`${
-          dark
-            ? "bg-black pt-[4rem] h-screen"
-            : "pt-[4rem] h-screen   overflow-hidden"
-        }`}>
+      <div className={`pt-[4rem] h-screen ${dark ? "bg-black" : ""}`}>
         <Search
           onSubmit={onSearchSubmit}
           val={searchTerm}
@@ -82,26 +77,23 @@ export const SearchComp = () => {
         </div>
       </div>
     );
+  }
 
-  if (!conSearchList.length)
+  if (!conSearchList.length) {
     return (
       <div
-        className={`${
-          dark
-            ? "bg-black pt-[4rem] h-screen overflow-hidden"
-            : "pt-[4rem] h-screen overflow-hidden"
+        className={`pt-[4rem] h-screen overflow-hidden ${
+          dark ? "bg-black" : ""
         }`}>
         <Search
           onSubmit={onSearchSubmit}
           val={searchTerm}
           onChange={onSearchchange}
         />
-        <div
-          className={`${
-            dark ? `w-full h-screen` : `w-full h-screen`
-          }`}></div>
+        <div className="w-full h-screen"></div>
       </div>
     );
+  }
 
   return (
     <div className={`${dark ? `bg-black pt-[4rem]` : `pt-[4rem]`}`}>
@@ -112,10 +104,8 @@ export const SearchComp = () => {
       />
 
       <div
-        className={`${
-          dark
-            ? `bg-black text-white md:grid md:grid-cols-2 md:gap-10 md:px-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8`
-            : ` md:grid md:grid-cols-2 md:gap-10 md:px-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8`
+        className={`md:grid md:grid-cols-2 md:gap-10 md:px-8 lg:grid lg:grid-cols-3 lg:gap-10 lg:px-8 ${
+          dark ? `bg-black text-white` : ``
         }`}>
         {conSearchList.map((item, i) => (
           <div
@@ -172,14 +162,12 @@ export const SearchComp = () => {
         <button
           id="btns"
           onClick={fetchHandler}
-          className={`${
+          className={`md:my-12 w-[7rem] rounded-md h-[2rem] mb-6 ${
+            fetchLoading ? "hidden" : ""
+          } ${
             dark
-              ? `bg-transparent mb-6 border border-white lg:hover:bg-[#0C3758] md:my-12 w-[7rem] rounded-md h-[2rem] ${
-                  fetchLoading ? "mt-6" : ""
-                } text-white`
-              : `bg-blue-300 md:my-12 hover:bg-transparent hover:text-gray-400 hover:border-2 w-[7rem] mb-6 ${
-                  fetchLoading ? "mt-6" : ""
-                } rounded-md h-[2rem]`
+              ? `bg-transparent border border-white lg:hover:bg-[#0C3758] text-white`
+              : `bg-blue-300 hover:bg-transparent hover:text-gray-400 hover:border-2`
           }`}>
           fetch more
         </button>
