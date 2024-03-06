@@ -14,6 +14,7 @@ export const SearchComp = () => {
   const [page, setPage] = useState(0);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [searchList, setSearchList] = useState([]);
+  const [error, setError] = useState(null);
 
   const conSearchList = searchList.filter(
     (item) => item.multimedia && item.multimedia.length
@@ -32,7 +33,7 @@ export const SearchComp = () => {
       setSearchList(results);
       setLoading(false);
     } catch (err) {
-      console.log(err);
+      setError(err);
       setLoading(false);
     }
   };
@@ -74,6 +75,26 @@ export const SearchComp = () => {
             wrapperClass="mx-auto"
             color="blue"
           />
+        </div>
+      </div>
+    );
+  }
+
+  if (error && !conSearchList.length) {
+    return (
+      <div
+        className={`pt-[4rem] h-screen overflow-hidden ${
+          dark ? "bg-black" : ""
+        }`}>
+        <Search
+          onSubmit={onSearchSubmit}
+          val={searchTerm}
+          onChange={onSearchchange}
+        />
+        <div className="w-full h-screen flex items-center justify-center">
+          <p className={`text-lg w-fit ${dark ? "text-white" : ""}`}>
+            There was an error, please try again
+          </p>
         </div>
       </div>
     );
