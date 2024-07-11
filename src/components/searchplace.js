@@ -31,9 +31,9 @@ export const SearchComp = () => {
       );
       const results = await res.data.response.docs;
       setSearchList(results);
-      setLoading(false);
     } catch (err) {
       setError(err);
+    } finally {
       setLoading(false);
     }
   };
@@ -44,10 +44,10 @@ export const SearchComp = () => {
         `https://api.nytimes.com/svc/search/v2/articlesearch.json?page=${pageNumber}&q=${searchTerm}&sort=newest&api-key=${process.env.REACT_APP_API_KEY}`
       );
       setSearchList([...searchList, ...res.data.response.docs]);
-      setFetchLoading(false);
     } catch (err) {
       console.log(err);
       setPage((prevPage) => prevPage - 1);
+    } finally {
       setFetchLoading(false);
     }
   };

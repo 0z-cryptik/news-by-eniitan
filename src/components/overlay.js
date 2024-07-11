@@ -1,7 +1,8 @@
 import { useList } from "../hooks&functions/myHooks";
 
 export const Overlay = () => {
-    const {viewMenu, setViewMenu} = useList()
+  const { viewMenu, setViewMenu } = useList();
+  
   if (viewMenu) {
     return (
       <div
